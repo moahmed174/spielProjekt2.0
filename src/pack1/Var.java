@@ -12,9 +12,10 @@ import java.io.IOException;
 public class Var {
 
 
+
     static JFrame jfi;
     static int screenwidth = 800, screenheight = 600;
-    static int backgroundY1 = 0,backgroundY2 = -600,  backgroundspeed =9;
+    static int backgroundY1 = 0,backgroundY2 = 600,  backgroundspeed =9;
     static int x = 400, y = 300;
     static  boolean moveup = false, movedown = false, moveleft = false, moveright= false;
     public static Label lbl1;
@@ -25,7 +26,6 @@ public class Var {
 
     public Var(){
         try { //Background
-
 
             ib1 = ImageIO.read(new File("rsc/Background.png"));
             ib2 = ImageIO.read(new File("rsc/Background.png"));
