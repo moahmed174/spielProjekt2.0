@@ -14,24 +14,28 @@ public class PlayerMovement {
             public void run() {
 
                 if (Var.moveup == true){
-                    if (Var.y>0) {
-                        Var.y -= Var.speedup;
+                    if (Var.ski_y >0) {
+                        Var.ski_y -= Var.speedup;
+                        Var.i_ski=Var.i_ski_straight;
                     }
 
                 } else if (Var.movedown== true){
-                    if (Var.y<=490) {
-                        Var.y += Var.speeddown;
+                    if (Var.ski_y <=490) {
+                        Var.ski_y += Var.speeddown;
+                        Var.i_ski=Var.i_ski_straight;
                     }
                 }
 
                 if (Var.moveleft== true){
-                    if (Var.x>0) {
-                        Var.x -= Var.speedleft;
+                    if (Var.ski_x >0) {
+                        Var.ski_x -= Var.speedleft;
+                        Var.i_ski=Var.i_ski_left;
                     }
 
                 } else if (Var.moveright == true) {
-                    if (Var.x <= 730) {
-                        Var.x += Var.speedright;
+                    if (Var.ski_x <= 730) {
+                        Var.ski_x += Var.speedright;
+                        Var.i_ski=Var.i_ski_right;
                     }
                 }
             }
