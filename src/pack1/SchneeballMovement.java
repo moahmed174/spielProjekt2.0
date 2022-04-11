@@ -18,7 +18,7 @@ public class SchneeballMovement {
         //Position
         for(int i=0;i<=4;i++){
             Var.schneeball_x[i]=20+temp;
-            Var.schneeball_y[i]=-100-temp;
+            Var.schneeball_y[i]=Var.win_screenheight+100+temp;
 
             temp += 160;
         }
@@ -32,17 +32,19 @@ public class SchneeballMovement {
 
                 for(int i=0;i<=4;i++){
                     //Bewegung von Schneeball
-                    Var.schneeball_y[i]+=Var.schneeball_speed[i];
+                    Var.schneeball_y[i]-=Var.schneeball_speed[i];
 
                     //Rand
-                    if(Var.schneeball_y[i]>=Var.screenheight){
-                        Var.schneeball_y[i]=-100;
+                    if(Var.schneeball_y[i]<=-100){
+                        Var.schneeball_y[i]=Var.win_screenheight+100;
                     }
                 }
 
             }
         },0,9);
     }
+
+
     /**private void getRotation(){
         //Drehung
         timer = new Timer();

@@ -17,7 +17,7 @@ public class CollectableMovement {
         //Position Jägermeister
         for(int i=0;i<=4;i++){
             Var.jaegermeister_x[i]=20+temp;
-            Var.jaegermeister_y[i]=-200-temp;
+            Var.jaegermeister_y[i]=Var.win_screenheight+200+temp;
 
             temp += 160;
         }
@@ -31,11 +31,11 @@ public class CollectableMovement {
 
                 for(int i=0;i<=4;i++){
                     //Bewegung von Schneeball
-                    Var.jaegermeister_y[i]+=Var.jaegermeister_speed[i];
+                    Var.jaegermeister_y[i]-=Var.jaegermeister_speed[i];
 
                     //Rand
-                    if(Var.jaegermeister_y[i]>=Var.screenheight){
-                        Var.jaegermeister_y[i]=-350;
+                    if(Var.jaegermeister_y[i]<=-100){
+                        Var.jaegermeister_y[i]=Var.win_screenheight+350;
                     }
                 }
 

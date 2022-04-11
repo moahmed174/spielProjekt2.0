@@ -13,8 +13,18 @@ public class Var {
 
     //Window
     static JFrame window;
-    static int win_screenwidth = 800, screenheight = 600;
+    static int win_screenwidth = 800, win_screenheight = 600;
     static int backgroundY1 = 0,backgroundY2 = 600,  backgroundspeed =9;
+
+    //Game mechanics
+    static boolean collision = false, lost = false;
+
+    //Buttons - Control
+    static JButton btn_resume, btn_shop, btn_option, btn_exit;
+    static JButton btn_mute;
+
+    //Anzeige
+    static int collectables=0, leben =2;
 
     //Movement
     static int ski_x = 400, ski_y = 300;
