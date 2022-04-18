@@ -34,11 +34,19 @@ public class Var {
     //Obstacles-Schneeball
     static int schneeball_x[] = new int[5], schneeball_y[] = new int[5] ;
     static int schneeball_speed[]=new int [5];
-    static BufferedImage i_schneeball;
+    static BufferedImage i_schneeball[]=new BufferedImage[8];
 
-    //Collectables-Jägermeister
-    static int jaegermeister_x[] = new int[5], jaegermeister_y[] = new int[5] ;
-    static int jaegermeister_speed []=new int [5];
+    //Collectables
+    static int col_x1[] = new int[5], col_y1[] = new int[5] ;
+    static int col_speed1[]=new int [5];
+    static BufferedImage i_bier;
+
+    static int col_x2[] = new int[2], col_y2[] = new int[2] ;
+    static int col_speed2[]=new int [2];
+    static BufferedImage i_redbull;
+
+    static int col_x3, col_y3;
+    static int col_speed3;
     static BufferedImage i_jaegermeister;
 
     //Drawing
@@ -55,8 +63,8 @@ public class Var {
     private void loadImages(){
         try { //Background
 
-            i_b1 = ImageIO.read(new File("rsc/back1.png"));
-            i_b2 = ImageIO.read(new File("rsc/back1.png"));
+            i_b1 = ImageIO.read(new File("rsc/win_background.png"));
+            i_b2 = ImageIO.read(new File("rsc/win_background.png"));
             //ski_direction
             i_ski_straight = ImageIO.read(new File("rsc/ski_straight.png"));
             i_ski_left = ImageIO.read(new File("rsc/ski_left.png"));
@@ -67,9 +75,13 @@ public class Var {
             i_ski_staub2=ImageIO.read(new File("rsc/ski_staub2.png"));
             i_ski_staub=i_ski_staub1;
             //Schneeball
-            i_schneeball = ImageIO.read(new File("rsc/obstacle_schneekugel.png"));
-            //Jägermeister
-            i_jaegermeister = ImageIO.read(new File("rsc/jaegermeister.jpg"));
+            for(int i=0;i<=7;i++) {
+                i_schneeball[i] = ImageIO.read(new File("rsc/obstacle_schneekugel_"+Integer.toString(i)+".png"));
+            }
+            //Collectables
+            i_bier = ImageIO.read(new File("rsc/collectable_wieselburger.png"));
+            i_jaegermeister = ImageIO.read(new File("rsc/collectable_jaegermeister.png"));
+            i_redbull = ImageIO.read(new File("rsc/collectable_redbull.png"));
 
 
         }catch (IOException e){
@@ -78,20 +90,28 @@ public class Var {
         }
     }
     private void giveRndSpeed(){
-        Random rnd = new Random();
 
         //Obstacle - Schneeballspeed
         for(int i=0;i<=4;i++){
             //rnd.nextInt((max - min) + 1) + min
             // --> random speed für die 5 Schneebälle zwischen min<=speed<=max
-            schneeball_speed[i]=rnd.nextInt((4 - 3) + 1) + 3;
+            schneeball_speed[i]=generateRandom(4,3);
         }
 
-        //Schneeball - Jägermeisterspeed
+        //Collectable - Bier
         for(int i=0;i<=4;i++){
-            //rnd.nextInt((max - min) + 1) + min
-            // --> random speed für die 5 Jägermeister zwischen min<=speed<=max
-            jaegermeister_speed[i]=rnd.nextInt((4 - 3) + 1) + 3;
+            col_speed1[i]=generateRandom(4,2);
         }
+        //Collectable - Redbull
+        for(int i=0;i<=1;i++){
+            col_speed2[i]=generateRandom(5,4);
+        }
+        //Collectable - Jägermeister
+        col_speed3 = 6;
+    }
+
+    private int generateRandom(int max, int min){
+        Random rnd = new Random();
+        return rnd.nextInt((max - min) + 1) + min;
     }
 }

@@ -3,11 +3,11 @@ package pack1;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class SchneeballColision {
+public class SchneeballCollision {
     Timer timer;
     private int temp=0;
 
-    public SchneeballColision() {
+    public SchneeballCollision() {
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
