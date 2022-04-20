@@ -19,12 +19,14 @@ public class Var {
     //Game mechanics
     static boolean collision = false, lost = false;
 
+    //Anzeige
+    static int collectables=0, leben =2;
+
     //Buttons - Control
     static JButton btn_resume, btn_shop, btn_option, btn_exit;
     static JButton btn_mute;
 
-    //Anzeige
-    static int collectables=0, leben =2;
+
 
     //Movement
     static int ski_x = 400, ski_y = 300;
@@ -37,17 +39,16 @@ public class Var {
     static BufferedImage i_schneeball[]=new BufferedImage[8];
 
     //Collectables
+    static BufferedImage i_bier;
     static int col_x1[] = new int[5], col_y1[] = new int[5] ;
     static int col_speed1[]=new int [5];
-    static BufferedImage i_bier;
-
+    static BufferedImage i_redbull;
     static int col_x2[] = new int[2], col_y2[] = new int[2] ;
     static int col_speed2[]=new int [2];
-    static BufferedImage i_redbull;
-
+    static BufferedImage i_jaegermeister;
     static int col_x3, col_y3;
     static int col_speed3;
-    static BufferedImage i_jaegermeister;
+
 
     //Drawing
     static Label lb_l1;
