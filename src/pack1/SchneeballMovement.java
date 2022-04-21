@@ -15,7 +15,7 @@ public class SchneeballMovement {
     public SchneeballMovement(){
         getStartPos();
         getMovement();
-        //getRotation();
+        getRotation();
     }
 
     private void getStartPos(){

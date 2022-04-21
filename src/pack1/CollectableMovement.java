@@ -54,7 +54,7 @@ public class CollectableMovement {
                     Var.col_y2[i]-=Var.col_speed2[i];
 
                     if(Var.col_y2[i]<=-100){
-                        Var.col_y1[i]=Var.win_screenheight+1500;
+                        Var.col_y2[i]=Var.win_screenheight+1500;
                     }
                 }
 
