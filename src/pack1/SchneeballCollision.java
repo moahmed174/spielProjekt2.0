@@ -16,10 +16,8 @@ public class SchneeballCollision {
                 for (int i=0; i<=4; i++){
                     if(temp==0){
 
-                        if(Var.ski_x>=Var.schneeball_x[i]-50&&
-                                Var.ski_x<=Var.schneeball_x[i]+73&&
-                                Var.ski_y>=Var.schneeball_x[i]-70&&
-                                Var.ski_x<=Var.schneeball_x[i]+35){
+                        if(Var.ski_x>=Var.schneeball_x[i]-Var.i_ski_w &&  Var.ski_x<=Var.schneeball_x[i]+Var.i_schneeball_w&&
+                                Var.ski_y>=Var.schneeball_x[i]-Var.i_ski_h&& Var.ski_x<=Var.schneeball_x[i]+Var.i_schneeball_h){
 
                             Var.collision=true;
                             Var.schneeball_y[i]=Var.win_screenheight+100;

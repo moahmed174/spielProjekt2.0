@@ -17,6 +17,7 @@ public class Label extends JLabel {
         getCollectable(g);
         getObstacle(g);
         getSki(g);
+        checkIfLost(g);
         repaint();
     }
 
@@ -50,6 +51,17 @@ public class Label extends JLabel {
         g.drawImage(Var.i_b1,0,Var.backgroundY1,800,600,null);
         g.drawImage(Var.i_b2,0,Var.backgroundY2,800,600,null);
 
+    }
+    private void checkIfLost(Graphics g){
+        if(Var.lost){
+            g.setColor(new Color(230, 0, 0));
+            g.setFont(new Font("Arial", Font.BOLD, 35));
+            g.drawString("Collectables: " + Var.collectables, 310, 200);
+        } else {
+            g.setColor(new Color(0,230,115));
+            g.setFont(new Font("Arial", Font.BOLD, 35));
+            g.drawString("Collectables: " + Var.collectables, 20, 50);
+        }
     }
 
 

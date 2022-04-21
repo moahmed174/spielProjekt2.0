@@ -11,6 +11,8 @@ public class Main {
         new SchneeballMovement();
         new CollectableMovement();
         new StaubAnimation();
-        //new SchneeballCollision();
+        new SchneeballCollision();
+        new CollectableCollision();
+        new Lost();
     }
 }
