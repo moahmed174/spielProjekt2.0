@@ -25,6 +25,7 @@ public class SchneeballCollision {
                             if(Var.leben == 1){
                                 Var.leben--;
                                 Var.lost=true;
+
                             }
                             else{
                                 Var.leben--;

@@ -17,6 +17,7 @@ public class Main {
         new SchneeballCollision();
         new CollectableCollision();
         new Lost();
+        new Explosion();
         //connectingBalanceBoard();
 
     }

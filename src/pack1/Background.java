@@ -3,7 +3,7 @@ package pack1;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Background {
+public class Background  {
     Timer back;
 
     public Background() {

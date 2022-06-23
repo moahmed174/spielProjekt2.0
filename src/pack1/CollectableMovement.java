@@ -1,6 +1,6 @@
 package pack1;
 
-import java.util.Timer;
+import   java.util.Timer;
 import java.util.TimerTask;
 
 public class CollectableMovement {

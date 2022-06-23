@@ -9,7 +9,8 @@ import java.io.IOException;
 import java.util.Random;
 
 
-public class Var {
+public class  Var {
+
 
     //Window
     static JFrame window;
@@ -18,6 +19,9 @@ public class Var {
 
     //Game mechanics
     static boolean collision = false, lost = false;
+
+    //Menü
+    static boolean imSpiel = true, imMenü = false ,imOption = false, imShop= false;
 
     //Anzeige
     static int collectables=0, leben =2, maxleben=2;
@@ -30,6 +34,7 @@ public class Var {
     static int ski_x = 400, ski_y = 300;
     static int speedup = 3, speeddown= 2, speedright = 2, speedleft =2;
     static boolean moveup = false, movedown = false, moveleft = false, moveright= false;
+
 
 
     //Drawing
@@ -58,6 +63,11 @@ public class Var {
     static int i_jaegermeister_w, i_jaegermeister_h;
     static int col_x3, col_y3;
     static int col_speed3;
+
+    //ExplosionAnimation
+    static int expanimation;
+    static BufferedImage iexplosion[] = new BufferedImage[16] ;
+
 
 
 
@@ -98,6 +108,9 @@ public class Var {
             i_redbull = ImageIO.read(new File("rsc/collectable_redbull.png"));
             i_redbull_w = i_redbull.getWidth();
             i_redbull_h = i_redbull.getHeight();
+            //Explosion
+            for (int i=0; i<=15;i++)
+            iexplosion[i] = ImageIO.read(new File("rsc/frame"+(i+i)+".png"));
 
         }catch (IOException e){
             e.printStackTrace();
