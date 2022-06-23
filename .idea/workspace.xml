@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a89cc5af-e4e6-4dca-99a6-c7f43f97eb63" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2022_17_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2022_17_06__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pack1/BBImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/BBImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pack1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +98,7 @@
       <workItem from="1650452327051" duration="2190000" />
       <workItem from="1655910360735" duration="21545000" />
       <workItem from="1655997883804" duration="236000" />
+      <workItem from="1655998487003" duration="38000" />
     </task>
     <task id="LOCAL-00001" summary="ab Video 11 weitermachen bitte">
       <created>1655988312500</created>
