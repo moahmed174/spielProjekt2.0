@@ -22,6 +22,7 @@ public class Main {
 
     }
 
+    /*
     public static void connectingBalanceBoard(){
         //basic console logging options...
         WiiRemoteJ.setConsoleLoggingAll();
@@ -51,4 +52,5 @@ public class Main {
         }
         catch(Exception e){e.printStackTrace();}
     }
+    */
 }

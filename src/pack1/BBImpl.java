@@ -5,6 +5,7 @@ import wiiremotej.*;
 import wiiremotej.event.*;
 
 public class BBImpl extends BalanceBoardAdapter{
+    /*
     private BalanceBoard board;
     private static double massX;
     private static double massY;
@@ -65,4 +66,5 @@ public class BBImpl extends BalanceBoardAdapter{
             System.exit(0);
         }
     }
+    */
 }
