@@ -13,14 +13,15 @@ public class StaubAnimation {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if(counter){
-                    Var.i_ski_staub=Var.i_ski_staub1;
-                    counter=false;
-                }else{
-                    Var.i_ski_staub=Var.i_ski_staub2;
-                    counter=true;
+                if(Var.imSpiel) {
+                    if (counter) {
+                        Var.i_ski_staub = Var.i_ski_staub1;
+                        counter = false;
+                    } else {
+                        Var.i_ski_staub = Var.i_ski_staub2;
+                        counter = true;
+                    }
                 }
-
             }
         }, 0, 100);
 

@@ -28,6 +28,8 @@ public class KeyHandler implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             Var.moveleft = true;
         }
+
+
         if (tempKeyhandler == 0) {
             //Menü
             if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
@@ -51,6 +53,8 @@ public class KeyHandler implements KeyListener {
                     Var.btn_option.setVisible(false);
                     Var.btn_exit.setVisible(false);
                     tempKeyhandler++;
+                    Aktualisierung.tempAktualisierung = 0;
+
                 }
 
             }

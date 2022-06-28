@@ -18,6 +18,20 @@ public class Lose {
                     if(temp>=0 && temp<=55){
                         temp++;
                     }else if(temp==56){
+
+                        //Menü
+                        Var.imSpiel=false;
+                        Var.imOption=false;
+                        Var.imShop=true;
+                        Var.imMenü=false;
+                        Var.btn_resume.setVisible(true);
+                        Var.btn_option.setVisible(false);
+                        Var.btn_shop.setVisible(false);
+                        Var.btn_exit.setVisible(false);
+                        KeyHandler.tempKeyhandler++;
+                        Var.btn_resume.requestFocus();
+                        Var.window.requestFocus();
+
                         System.out.println("Verloren");
 
                         collectablePlatzierung();

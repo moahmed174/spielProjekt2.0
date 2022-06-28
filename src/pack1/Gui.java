@@ -15,7 +15,7 @@ public class Gui {
         Var.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Var.window.setLocationRelativeTo(null);
         Var.window.setLayout(null);
-        Var.window.setTitle("Spiel 1");
+        Var.window.setTitle("Ski Adventure");
         Var.window.requestFocus();
         Var.window.addKeyListener(new KeyHandler());
         Var.window.setVisible(true);
@@ -38,16 +38,17 @@ public class Gui {
         Var.btn_resume.addMouseListener(new MouseAdapter() {
 
             @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
+            public void mouseEntered(MouseEvent evt) {
+                super.mouseEntered(evt);
                 Var.btn_resume.setBackground(new Color(0,250,115));
                 Var.btn_resume.setForeground(Color.black);
-            } public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                Var.btn_resume.setBackground(new Color(0,250,115));
-                Var.btn_resume.setForeground(Color.black);
+            } public void mouseExited(MouseEvent evt) {
+                super.mouseExited(evt);
+                Var.btn_resume.setBackground(Color.black);
+                Var.btn_resume.setForeground(Color.white);
             }
         });
+        Var.window.add(Var.btn_resume);
 
         Var.btn_shop=new JButton();
         Var.btn_shop.setText("Upgrade");
@@ -62,19 +63,20 @@ public class Gui {
         Var.btn_shop.addMouseListener(new MouseAdapter() {
 
             @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
+            public void mouseEntered(MouseEvent evt) {
+                super.mouseEntered(evt);
                 Var.btn_shop.setBackground(new Color(0,250,115));
                 Var.btn_shop.setForeground(Color.black);
-            } public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                Var.btn_shop.setBackground(new Color(0,250,115));
-                Var.btn_shop.setForeground(Color.black);
+            } public void mouseExited(MouseEvent evt) {
+                super.mouseExited(evt);
+                Var.btn_shop.setBackground(Color.black);
+                Var.btn_shop.setForeground(Color.white);
             }
         });
+        Var.window.add(Var.btn_shop);
 
         Var.btn_option=new JButton();
-        Var.btn_option.setText("Upgrade");
+        Var.btn_option.setText("Option");
         Var.btn_option.setBounds(30,250,725,50 );
         Var.btn_option.setVisible(false);
         Var.btn_option.addActionListener(new ActionHandler() );
@@ -86,16 +88,17 @@ public class Gui {
         Var.btn_option.addMouseListener(new MouseAdapter() {
 
             @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
+            public void mouseEntered(MouseEvent evt) {
+                super.mouseEntered(evt);
                 Var.btn_option.setBackground(new Color(0,250,115));
                 Var.btn_option.setForeground(Color.black);
-            } public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                Var.btn_option.setBackground(new Color(0,250,115));
-                Var.btn_option.setForeground(Color.black);
+            } public void mouseExited(MouseEvent evt) {
+                super.mouseExited(evt);
+                Var.btn_option.setBackground(Color.black);
+                Var.btn_option.setForeground(Color.white);
             }
         });
+        Var.window.add(Var.btn_option);
 
         Var.btn_exit=new JButton();
         Var.btn_exit.setText("Exit");
@@ -110,16 +113,18 @@ public class Gui {
         Var.btn_exit.addMouseListener(new MouseAdapter() {
 
             @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
+            public void mouseEntered(MouseEvent evt) {
+                super.mouseEntered(evt);
                 Var.btn_exit.setBackground(new Color(0,250,115));
                 Var.btn_exit.setForeground(Color.black);
-            } public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                Var.btn_exit.setBackground(new Color(0,250,115));
-                Var.btn_exit.setForeground(Color.black);
+            } public void mouseExited(MouseEvent evt) {
+                super.mouseExited(evt);
+                Var.btn_exit.setBackground(Color.black);
+                Var.btn_exit.setForeground(Color.white);
             }
         });
+        Var.window.add(Var.btn_exit);
+        Var.window.add(Var.lb_l1);
 
 
 

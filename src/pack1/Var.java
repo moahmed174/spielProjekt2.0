@@ -22,9 +22,13 @@ public class  Var {
 
     //Menü
     static boolean imSpiel = true, imMenü = false ,imOption = false, imShop= false;
+    static Label lbl1;
 
     //Anzeige
-    static int collectables=0, leben =2, maxleben=2;
+    static int collectables=0, leben =3, maxleben=3;
+    static int up1anzahl=0, up2anzahl = 0, up3anzahl = 0;
+    static int up1preis =10 , up2preis = 30, up3preis= 60;
+
 
     //Buttons - Control
     static JButton btn_resume, btn_shop, btn_option, btn_exit;
@@ -34,7 +38,6 @@ public class  Var {
     static int ski_x = 400, ski_y = 300;
     static int speedup = 3, speeddown= 2, speedright = 2, speedleft =2;
     static boolean moveup = false, movedown = false, moveleft = false, moveright= false;
-
 
 
     //Drawing
@@ -63,6 +66,7 @@ public class  Var {
     static int i_jaeger_w, i_jaeger_h;
     static int jaeger_x, jaeger_y;
     static int jaeger_speed;
+    static BufferedImage ileben;
 
     //ExplosionAnimation
     static int expanimation;
@@ -92,6 +96,9 @@ public class  Var {
             i_ski_staub1=ImageIO.read(new File("rsc/ski_staub.png"));
             i_ski_staub2=ImageIO.read(new File("rsc/ski_staub2.png"));
             i_ski_staub=i_ski_staub1;
+
+
+
             //Schneeball
             for(int i=0;i<=7;i++) {
                 i_schneeball[i] = ImageIO.read(new File("rsc/obstacle_schneekugel_"+Integer.toString(i)+".png"));
@@ -108,9 +115,12 @@ public class  Var {
             i_jaegermeister = ImageIO.read(new File("rsc/collectable_jaegermeister.png"));
             i_jaeger_w = 30;
             i_jaeger_h = 70;
-            //Explosion
-            for (int i=0; i<=15;i++)
-                iexplosion[i] = ImageIO.read(new File("rsc/frame" + (i + i) + ".png"));
+
+            //Explosion funktion wurde gelöscht, weil nicht mehr gebraucht wird
+
+            //Leben
+            ileben =ImageIO.read(new File("rsc/leben1.png"));
+
         }catch (IOException e){
             e.printStackTrace();
             System.out.println("Bilder konnten nicht geladen werden. ");

@@ -9,6 +9,7 @@ public class CollectableMovement {
     private int temp=0;
 
     public CollectableMovement(){
+
         getStartPos();
         getMovement();
     }
@@ -32,40 +33,47 @@ public class CollectableMovement {
         Var.jaeger_y = Var.win_screenheight+4000;
 
     }
-    private void getMovement(){
+    private void getMovement() {
 
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
 
-                //Bier
-                for(int i=0;i<=4;i++){
-                    Var.bier_y[i]-=Var.bier_speed[i];
 
-                    //Rand
-                    if(Var.bier_y[i]<=-100){
-                        Var.bier_y[i]=Var.win_screenheight+350;
+
+                    //Bier
+                    for (int i = 0; i <= 4; i++) {
+                        Var.bier_y[i] -= Var.bier_speed[i];
+
+                        //Rand
+                        if (Var.bier_y[i] <= -100) {
+                            Var.bier_y[i] = Var.win_screenheight + 350;
+                        }
                     }
-                }
 
-                //Redbull
-                for(int i=0;i<=1;i++){
-                    Var.redbull_y[i]-=Var.redbull_speed[i];
+                    //Redbull
+                    for (int i = 0; i <= 1; i++) {
+                        Var.redbull_y[i] -= Var.redbull_speed[i];
 
-                    if(Var.redbull_y[i]<=-100){
-                        Var.redbull_y[i]=Var.win_screenheight+1500;
+                        if (Var.redbull_y[i] <= -100) {
+                            Var.redbull_y[i] = Var.win_screenheight + 1500;
+                        }
                     }
+
+                    //Jägermeister
+                    Var.jaeger_y -= Var.jaeger_speed;
+
+                    if (Var.jaeger_y <= -100) {
+                        Var.jaeger_y = Var.win_screenheight + 4000;
+                    }
+
+
                 }
 
-                //Jägermeister
-                Var.jaeger_y -=Var.jaeger_speed;
 
-                if(Var.jaeger_y <=-100){
-                    Var.jaeger_y =Var.win_screenheight+4000;
-                }
-            }
-        },0,9);
+        }, 0, 9);
     }
+
 
 }

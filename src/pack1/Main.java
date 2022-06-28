@@ -15,6 +15,13 @@ public class Main {
         new CollectableCollision();
         new Lose();
         new Explosion();
+        new Aktualisierung();
+        new ActionHandler();
+
+
+
+
+
         //connectingBalanceBoard();
 
     }
