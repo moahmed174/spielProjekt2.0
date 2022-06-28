@@ -1,0 +1,221 @@
+Index: src/pack1/Var.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pack1;\r\n\r\nimport javax.imageio.ImageIO;\r\nimport javax.swing.*;\r\n\r\nimport java.awt.image.BufferedImage;\r\nimport java.io.File;\r\nimport java.io.IOException;\r\nimport java.util.Random;\r\n\r\n\r\npublic class  Var {\r\n\r\n\r\n    //Window\r\n    static JFrame window;\r\n    static int win_screenwidth = 800, win_screenheight = 600;\r\n    static int backgroundY1 = 0,backgroundY2 = 600,  backgroundspeed =9;\r\n\r\n    //Game mechanics\r\n    static boolean collision = false, lost = false;\r\n\r\n    //Menü\r\n    static boolean imSpiel = true, imMenü = false ,imOption = false, imShop= false;\r\n\r\n    //Anzeige\r\n    static int collectables=0, leben =2, maxleben=2;\r\n\r\n    //Buttons - Control\r\n    static JButton btn_resume, btn_shop, btn_option, btn_exit;\r\n    static JButton btn_mute;\r\n\r\n    //Movement\r\n    static int ski_x = 400, ski_y = 300;\r\n    static int speedup = 3, speeddown= 2, speedright = 2, speedleft =2;\r\n    static boolean moveup = false, movedown = false, moveleft = false, moveright= false;\r\n\r\n\r\n\r\n    //Drawing\r\n    static Label lb_l1;\r\n    static BufferedImage i_b1, i_b2;\r\n    static BufferedImage i_ski, i_ski_straight, i_ski_left, i_ski_right;\r\n    static BufferedImage i_ski_staub, i_ski_staub1, i_ski_staub2;\r\n    static int i_ski_w, i_ski_h;\r\n\r\n    //Obstacles-Schneeball\r\n    static int schneeball_x[] = new int[5], schneeball_y[] = new int[5] ;\r\n    static int schneeball_speed[]=new int [5];\r\n    static BufferedImage i_schneeball[]=new BufferedImage[8];\r\n    static int i_schneeball_w, i_schneeball_h;\r\n\r\n    //Collectables\r\n    static BufferedImage i_bier;\r\n    static int i_bier_w, i_bier_h;\r\n    static int bier_x[] = new int[5], bier_y[] = new int[5] ;\r\n    static int bier_speed[]=new int [5];\r\n    static BufferedImage i_redbull;\r\n    static int i_redbull_w, i_redbull_h;\r\n    static int redbull_x[] = new int[2], redbull_y[] = new int[2] ;\r\n    static int redbull_speed[]=new int [2];\r\n    static BufferedImage i_jaegermeister;\r\n    static int i_jaeger_w, i_jaeger_h;\r\n    static int jaeger_x, jaeger_y;\r\n    static int jaeger_speed;\r\n\r\n    //ExplosionAnimation\r\n    static int expanimation;\r\n    static BufferedImage iexplosion[] = new BufferedImage[16] ;\r\n\r\n\r\n\r\n\r\n    public Var(){\r\n        loadImages();\r\n        giveRndSpeed();\r\n    }\r\n\r\n    private void loadImages(){\r\n        try {\r\n            //Background\r\n            i_b1 = ImageIO.read(new File(\"rsc/win_background.png\"));\r\n            i_b2 = ImageIO.read(new File(\"rsc/win_background.png\"));\r\n            //ski_direction\r\n            i_ski_straight = ImageIO.read(new File(\"rsc/ski_straight.png\"));\r\n            i_ski_left = ImageIO.read(new File(\"rsc/ski_left.png\"));\r\n            i_ski_right = ImageIO.read(new File(\"rsc/ski_right.png\"));\r\n            i_ski=i_ski_straight;\r\n            i_ski_w=i_ski_straight.getWidth();\r\n            i_ski_h=i_ski_straight.getHeight();\r\n            //Ski_staub\r\n            i_ski_staub1=ImageIO.read(new File(\"rsc/ski_staub.png\"));\r\n            i_ski_staub2=ImageIO.read(new File(\"rsc/ski_staub2.png\"));\r\n            i_ski_staub=i_ski_staub1;\r\n            //Schneeball\r\n            for(int i=0;i<=7;i++) {\r\n                i_schneeball[i] = ImageIO.read(new File(\"rsc/obstacle_schneekugel_\"+Integer.toString(i)+\".png\"));\r\n            }\r\n            i_schneeball_w = 70;\r\n            i_schneeball_h = 70;\r\n            //Collectables\r\n            i_bier = ImageIO.read(new File(\"rsc/collectable_wieselburger.png\"));\r\n            i_bier_w = 25;\r\n            i_bier_h = 70;\r\n            i_redbull = ImageIO.read(new File(\"rsc/collectable_redbull.png\"));\r\n            i_redbull_w = 25;\r\n            i_redbull_h = 70;\r\n            i_jaegermeister = ImageIO.read(new File(\"rsc/collectable_jaegermeister.png\"));\r\n            i_jaeger_w = 30;\r\n            i_jaeger_h = 70;\r\n            //Explosion\r\n            for (int i=0; i<=15;i++)\r\n                iexplosion[i] = ImageIO.read(new File(\"rsc/frame\" + (i + i) + \".png\"));\r\n        }catch (IOException e){\r\n            e.printStackTrace();\r\n            System.out.println(\"Bilder konnten nicht geladen werden. \");\r\n        }\r\n    }\r\n\r\n    private void giveRndSpeed(){\r\n\r\n        //Obstacle - Schneeballspeed\r\n        for(int i=0;i<=4;i++){\r\n            //rnd.nextInt((max - min) + 1) + min\r\n            // --> random speed für die 5 Schneebälle zwischen min<=speed<=max\r\n            schneeball_speed[i]=generateRandom(4,3);\r\n        }\r\n\r\n        //Collectable - Bier\r\n        for(int i=0;i<=4;i++){\r\n            bier_speed[i]=generateRandom(4,2);\r\n        }\r\n        //Collectable - Redbull\r\n        for(int i=0;i<=1;i++){\r\n            redbull_speed[i]=generateRandom(5,4);\r\n        }\r\n        //Collectable - Jägermeister\r\n        jaeger_speed = 6;\r\n    }\r\n\r\n    private int generateRandom(int max, int min){\r\n        Random rnd = new Random();\r\n        return rnd.nextInt((max - min) + 1) + min;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pack1/Var.java b/src/pack1/Var.java
+--- a/src/pack1/Var.java	(revision a401b3929d1531d0f04a3274e2ecb0aa468da604)
++++ b/src/pack1/Var.java	(date 1656417720636)
+@@ -110,7 +110,8 @@
+             i_jaeger_h = 70;
+             //Explosion
+             for (int i=0; i<=15;i++)
+-                iexplosion[i] = ImageIO.read(new File("rsc/frame" + (i + i) + ".png"));
++                iexplosion[i] = ImageIO.read(new File("rsc/frame" + (i + 1) + ".png"));
++
+         }catch (IOException e){
+             e.printStackTrace();
+             System.out.println("Bilder konnten nicht geladen werden. ");
+Index: src/pack1/Explosion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pack1;\r\n\r\nimport pack1.Var;\r\n\r\nimport java.util.Timer;\r\nimport java.util.TimerTask;\r\n\r\npublic class Explosion {\r\n\r\n\r\n    Timer exp;\r\n    private  int temp = 0;\r\n\r\n    public Explosion() {\r\n        exp = new Timer();\r\n        exp.scheduleAtFixedRate(new TimerTask() {\r\n            @Override\r\n            public void run() {\r\n                if (Var.collision) {\r\n                    if (temp< 15) {\r\n                       Var.expanimation = temp;\r\n                        temp++;\r\n                        System.out.println(Var.expanimation);\r\n                    } else if (temp == 15) {\r\n                        Var.expanimation=15;\r\n                        temp = 0;\r\n                        Var.collision = false;\r\n\r\n                    }\r\n                }\r\n            }\r\n        }, 0, 40);\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pack1/Explosion.java b/src/pack1/Explosion.java
+--- a/src/pack1/Explosion.java	(revision a401b3929d1531d0f04a3274e2ecb0aa468da604)
++++ b/src/pack1/Explosion.java	(date 1656417768380)
+@@ -29,7 +29,7 @@
+                     }
+                 }
+             }
+-        }, 0, 40);
++        }, 0, 50);
+ 
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a89cc5af-e4e6-4dca-99a6-c7f43f97eb63\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/spielProjekt/pack1/Var.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/spielProjekt/pack1/Var.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"JUnit5 Test Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--tags\" />\r\n        <option name=\"title\" value=\"All\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"283aGzd1VNuAmCb4xVxRJ66Zb9F\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\" value=\"JUnit5\" />\r\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\" value=\"\" />\r\n    <property name=\"create.test.in.the.same.root\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/lib/WiiRemoteJ.jar\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.customizations\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\moham\\OneDrive\\Dokumente\\GitHub\\spielProjekt\\src\" />\r\n      <recent name=\"C:\\Users\\moham\\OneDrive\\Dokumente\\GitHub\\spielProjekt\\src\\pack1\" />\r\n      <recent name=\"C:\\Users\\moham\\OneDrive\\Dokumente\\GitHub\\spielProjekt\\rsc\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.Recents.Supers\">\r\n      <recent name=\"\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.RecentsKey\">\r\n      <recent name=\"pack1\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"openjdk-16\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"pack1.Main\" />\r\n      <module name=\"spielProjekt\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a89cc5af-e4e6-4dca-99a6-c7f43f97eb63\" name=\"Changes\" comment=\"\" />\r\n      <created>1650447632445</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1650447632445</updated>\r\n      <workItem from=\"1650447634332\" duration=\"139000\" />\r\n      <workItem from=\"1650448027600\" duration=\"46000\" />\r\n      <workItem from=\"1650448647352\" duration=\"2000\" />\r\n      <workItem from=\"1650452327051\" duration=\"2190000\" />\r\n      <workItem from=\"1655910360735\" duration=\"21545000\" />\r\n      <workItem from=\"1655997883804\" duration=\"236000\" />\r\n      <workItem from=\"1655998487003\" duration=\"38000\" />\r\n      <workItem from=\"1656405347981\" duration=\"80000\" />\r\n      <workItem from=\"1656405775656\" duration=\"2446000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"ab Video 11 weitermachen bitte\">\r\n      <created>1655988312500</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1655988312500</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Lass Beten\">\r\n      <created>1656407877425</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1656407877425</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT\" value=\"false\" />\r\n    <option name=\"CHECK_NEW_TODO\" value=\"false\" />\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"ab Video 11 weitermachen bitte\" />\r\n    <MESSAGE value=\"Lass Beten\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Lass Beten\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision a401b3929d1531d0f04a3274e2ecb0aa468da604)
++++ b/.idea/workspace.xml	(date 1656426310746)
+@@ -2,7 +2,17 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="a89cc5af-e4e6-4dca-99a6-c7f43f97eb63" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Var.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Var.class" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/lib/.idea/.gitignore" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/lib/.idea/lib.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/lib/.idea/libraries/lib.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/lib/.idea/misc.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/lib/.idea/modules.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/lib/.idea/runConfigurations.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/lib/.idea/vcs.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2022_17_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2022_17_06__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/pack1/Explosion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/Explosion.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/pack1/Var.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/Var.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -73,7 +83,7 @@
+   </component>
+   <component name="RunManager">
+     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-16" />
++      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-18" />
+       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+       <option name="MAIN_CLASS_NAME" value="pack1.Main" />
+       <module name="spielProjekt" />
+@@ -99,6 +109,9 @@
+       <workItem from="1655998487003" duration="38000" />
+       <workItem from="1656405347981" duration="80000" />
+       <workItem from="1656405775656" duration="2446000" />
++      <workItem from="1656412422605" duration="40000" />
++      <workItem from="1656416356119" duration="186000" />
++      <workItem from="1656416905270" duration="2403000" />
+     </task>
+     <task id="LOCAL-00001" summary="ab Video 11 weitermachen bitte">
+       <created>1655988312500</created>
+Index: lib/.idea/lib.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/.idea/lib.iml b/lib/.idea/lib.iml
+new file mode 100644
+--- /dev/null	(date 1656416804948)
++++ b/lib/.idea/lib.iml	(date 1656416804948)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: lib/.idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/.idea/modules.xml b/lib/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1656416804971)
++++ b/lib/.idea/modules.xml	(date 1656416804971)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/lib.iml" filepath="$PROJECT_DIR$/.idea/lib.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: lib/.idea/libraries/lib.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/.idea/libraries/lib.xml b/lib/.idea/libraries/lib.xml
+new file mode 100644
+--- /dev/null	(date 1656416804985)
++++ b/lib/.idea/libraries/lib.xml	(date 1656416804985)
+@@ -0,0 +1,10 @@
++<component name="libraryTable">
++  <library name="lib">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/bluecove-2.1.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/WiiRemoteJ.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: lib/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/.idea/misc.xml b/lib/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1656416804995)
++++ b/lib/.idea/misc.xml	(date 1656416804995)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: lib/.idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/.idea/runConfigurations.xml b/lib/.idea/runConfigurations.xml
+new file mode 100644
+--- /dev/null	(date 1656416805005)
++++ b/lib/.idea/runConfigurations.xml	(date 1656416805005)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RunConfigurationProducerService">
++    <option name="ignoredProducers">
++      <set>
++        <option value="com.android.tools.idea.compose.preview.runconfiguration.ComposePreviewRunConfigurationProducer" />
++      </set>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: lib/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/.idea/vcs.xml b/lib/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1656416805015)
++++ b/lib/.idea/vcs.xml	(date 1656416805015)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: lib/.idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/.idea/.gitignore b/lib/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1656416805321)
++++ b/lib/.idea/.gitignore	(date 1656416805321)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml

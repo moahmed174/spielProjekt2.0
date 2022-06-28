@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_28_06_2022_16_25_[Changes]1" date="1656426334281" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_2022_16_25_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 28.06.2022 16:25 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spielProjekt/pack1/Explosion.class" />
+    <option name="AFTER_PATH" value="out/production/spielProjekt/pack1/Explosion.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_2022_16_25_[Changes]1/Explosion.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spielProjekt/pack1/Var.class" />
+    <option name="AFTER_PATH" value="out/production/spielProjekt/pack1/Var.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_2022_16_25_[Changes]1/Var.class" />
+  </binary>
+</changelist>
