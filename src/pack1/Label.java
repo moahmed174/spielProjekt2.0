@@ -31,13 +31,13 @@ public class Label extends JLabel {
     private void getCollectable(Graphics g){
         //Collectable - Bier
         for(int i=0;i<=4;i++) {
-            g.drawImage(Var.i_bier, Var.col_x1[i], Var.col_y1[i], 25, 70, null);
+            g.drawImage(Var.i_bier, Var.bier_x[i], Var.bier_y[i], 25, 70, null);
         }
         //RedBull
-        g.drawImage(Var.i_redbull, Var.col_x2[0], Var.col_y2[0], 25, 70, null);
-        g.drawImage(Var.i_redbull, Var.col_x2[1], Var.col_y2[1], 25, 70, null);
+        g.drawImage(Var.i_redbull, Var.redbull_x[0], Var.redbull_y[0], 25, 70, null);
+        g.drawImage(Var.i_redbull, Var.redbull_x[1], Var.redbull_y[1], 25, 70, null);
         //Jägermeister
-        g.drawImage(Var.i_jaegermeister, Var.col_x3, Var.col_y3, 30, 70, null);
+        g.drawImage(Var.i_jaegermeister, Var.jaeger_x, Var.jaeger_y, 30, 70, null);
 
     }
     private void getObstacle(Graphics g){

@@ -2,8 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a89cc5af-e4e6-4dca-99a6-c7f43f97eb63" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/WiiRemoteJ.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/bluecove-2.1.1.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2022_17_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2022_17_06__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/BBImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/CollectableCollision$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/CollectableCollision$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/CollectableCollision.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/CollectableCollision.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/CollectableMovement$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/CollectableMovement$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/CollectableMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/CollectableMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Label.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Label.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Lost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Lost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Main$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/SchneeballCollision$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/SchneeballCollision$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/SchneeballCollision.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/SchneeballCollision.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Var.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spielProjekt/pack1/Var.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pack1/BBImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/BBImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pack1/CollectableCollision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/CollectableCollision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pack1/CollectableMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/CollectableMovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pack1/Label.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/Label.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pack1/Lost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/Lost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pack1/SchneeballCollision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/SchneeballCollision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pack1/Var.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack1/Var.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spielProjekt.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +76,8 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/WiiRemoteJ.jar" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/WiiRemoteJ.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
@@ -99,6 +121,8 @@
       <workItem from="1655910360735" duration="21545000" />
       <workItem from="1655997883804" duration="236000" />
       <workItem from="1655998487003" duration="38000" />
+      <workItem from="1656405347981" duration="80000" />
+      <workItem from="1656405775656" duration="2038000" />
     </task>
     <task id="LOCAL-00001" summary="ab Video 11 weitermachen bitte">
       <created>1655988312500</created>

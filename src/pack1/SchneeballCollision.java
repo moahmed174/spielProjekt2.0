@@ -15,17 +15,14 @@ public class SchneeballCollision {
 
                 for (int i=0; i<=4; i++){
                     if(temp==0){
-
-                        if(Var.ski_x>=Var.schneeball_x[i]-Var.i_ski_w &&  Var.ski_x<=Var.schneeball_x[i]+Var.i_schneeball_w&&
-                                Var.ski_y>=Var.schneeball_x[i]-Var.i_ski_h&& Var.ski_x<=Var.schneeball_x[i]+Var.i_schneeball_h){
-
+                        if(Var.ski_x+Var.i_ski_w>=Var.schneeball_x[i] && Var.ski_x-Var.i_schneeball_w<=Var.schneeball_x[i]&&
+                                Var.ski_y+Var.i_ski_h>=Var.schneeball_y[i]&& Var.ski_y-Var.i_schneeball_h<=Var.schneeball_y[i]){
                             Var.collision=true;
                             Var.schneeball_y[i]=Var.win_screenheight+100;
 
                             if(Var.leben == 1){
                                 Var.leben--;
                                 Var.lost=true;
-
                             }
                             else{
                                 Var.leben--;
@@ -42,6 +39,6 @@ public class SchneeballCollision {
                     temp++;
                 }
             }
-        },0, 15);
+        },0, 1);
     }
 }

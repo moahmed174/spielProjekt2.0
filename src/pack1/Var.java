@@ -53,16 +53,16 @@ public class  Var {
     //Collectables
     static BufferedImage i_bier;
     static int i_bier_w, i_bier_h;
-    static int col_x1[] = new int[5], col_y1[] = new int[5] ;
-    static int col_speed1[]=new int [5];
+    static int bier_x[] = new int[5], bier_y[] = new int[5] ;
+    static int bier_speed[]=new int [5];
     static BufferedImage i_redbull;
     static int i_redbull_w, i_redbull_h;
-    static int col_x2[] = new int[2], col_y2[] = new int[2] ;
-    static int col_speed2[]=new int [2];
+    static int redbull_x[] = new int[2], redbull_y[] = new int[2] ;
+    static int redbull_speed[]=new int [2];
     static BufferedImage i_jaegermeister;
-    static int i_jaegermeister_w, i_jaegermeister_h;
-    static int col_x3, col_y3;
-    static int col_speed3;
+    static int i_jaeger_w, i_jaeger_h;
+    static int jaeger_x, jaeger_y;
+    static int jaeger_speed;
 
     //ExplosionAnimation
     static int expanimation;
@@ -77,8 +77,8 @@ public class  Var {
     }
 
     private void loadImages(){
-        try { //Background
-
+        try {
+            //Background
             i_b1 = ImageIO.read(new File("rsc/win_background.png"));
             i_b2 = ImageIO.read(new File("rsc/win_background.png"));
             //ski_direction
@@ -96,22 +96,21 @@ public class  Var {
             for(int i=0;i<=7;i++) {
                 i_schneeball[i] = ImageIO.read(new File("rsc/obstacle_schneekugel_"+Integer.toString(i)+".png"));
             }
-            i_schneeball_w = i_schneeball[0].getWidth();
-            i_schneeball_h = i_schneeball[0].getHeight();
+            i_schneeball_w = 70;
+            i_schneeball_h = 70;
             //Collectables
             i_bier = ImageIO.read(new File("rsc/collectable_wieselburger.png"));
-            i_bier_w = i_bier.getWidth();
-            i_bier_h = i_bier.getHeight();
-            i_jaegermeister = ImageIO.read(new File("rsc/collectable_jaegermeister.png"));
-            i_jaegermeister_w = i_jaegermeister.getWidth();
-            i_jaegermeister_h = i_jaegermeister.getHeight();
+            i_bier_w = 25;
+            i_bier_h = 70;
             i_redbull = ImageIO.read(new File("rsc/collectable_redbull.png"));
-            i_redbull_w = i_redbull.getWidth();
-            i_redbull_h = i_redbull.getHeight();
+            i_redbull_w = 25;
+            i_redbull_h = 70;
+            i_jaegermeister = ImageIO.read(new File("rsc/collectable_jaegermeister.png"));
+            i_jaeger_w = 30;
+            i_jaeger_h = 70;
             //Explosion
             for (int i=0; i<=15;i++)
-            iexplosion[i] = ImageIO.read(new File("rsc/frame"+(i+i)+".png"));
-
+                iexplosion[i] = ImageIO.read(new File("rsc/frame" + (i + i) + ".png"));
         }catch (IOException e){
             e.printStackTrace();
             System.out.println("Bilder konnten nicht geladen werden. ");
@@ -129,14 +128,14 @@ public class  Var {
 
         //Collectable - Bier
         for(int i=0;i<=4;i++){
-            col_speed1[i]=generateRandom(4,2);
+            bier_speed[i]=generateRandom(4,2);
         }
         //Collectable - Redbull
         for(int i=0;i<=1;i++){
-            col_speed2[i]=generateRandom(5,4);
+            redbull_speed[i]=generateRandom(5,4);
         }
         //Collectable - Jägermeister
-        col_speed3 = 6;
+        jaeger_speed = 6;
     }
 
     private int generateRandom(int max, int min){
