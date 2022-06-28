@@ -2,7 +2,7 @@ package pack1;
 import java.awt.*;
 import javax.swing.*;
 
-/*
+
 import wiiremotej.*;
 import wiiremotej.event.*;
 
@@ -69,4 +69,4 @@ public class BBImpl extends BalanceBoardAdapter{
         }
     }
 }
- */
+
