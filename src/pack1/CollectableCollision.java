@@ -41,6 +41,6 @@ public class CollectableCollision {
                     Var.jaeger_y =Var.win_screenheight+4000;
                 }
             }
-        },0, 1);
+        },0, 15);
     }
 }

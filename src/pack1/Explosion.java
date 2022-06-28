@@ -29,7 +29,7 @@ public class Explosion {
                     }
                 }
             }
-        }, 0, 40);
+        }, 0, 50);
 
     }
 }

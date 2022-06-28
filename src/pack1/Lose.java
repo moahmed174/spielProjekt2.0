@@ -3,11 +3,11 @@ package pack1;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Lost {
+public class Lose {
     Timer timer;
     private int temp=0, temp1=0, temp2=0;
 
-    public Lost() {
+    public Lose() {
         timer = new Timer();
 
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -34,10 +34,10 @@ public class Lost {
     private void collectablePlatzierung(){
         //Position Bier
         for(int i=0;i<=4;i++){
-            Var.bier_x[i]=20+temp;
-            Var.bier_y[i]=Var.win_screenheight+200+temp;
+            Var.bier_x[i]=20+temp1;
+            Var.bier_y[i]=Var.win_screenheight+200+temp1;
 
-            temp += 160;
+            temp1 += 160;
         }
         //Position Redbull
         Var.redbull_x[0]=Var.win_screenwidth/3;
@@ -52,16 +52,16 @@ public class Lost {
     private void schneeballPlatzierung(){
 
         for(int i=0; i<=4;i++){
-            Var.schneeball_y[i]=0;
-        } //Unnötig??
-
-        for(int i=0; i<=4;i++){
             Var.schneeball_y[i]=Var.win_screenheight+100+temp2;
 
             temp2+=160;
         }
     }
     private void resetStats(){
+        temp=0;
+        temp1=0;
+        temp2=0;
+
         if(Var.collectables>=50){
             Var.collectables-=50;
         } else {

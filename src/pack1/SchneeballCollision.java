@@ -32,13 +32,13 @@ public class SchneeballCollision {
                         }
                     }
                 }
-                if(temp>=66){
-                    temp=0;
-                }
-                else{
+                if(temp>=1 && temp<=65){
                     temp++;
                 }
+                else if (temp==66){
+                    temp=0;
+                }
             }
-        },0, 1);
+        },0, 15);
     }
 }

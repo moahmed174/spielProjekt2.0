@@ -1,8 +1,5 @@
 package pack1;
 
-import wiiremotej.BalanceBoard;
-import wiiremotej.WiiRemoteJ;
-
 public class Main {
     public static void main(String[] args) {
         new Gui();
@@ -16,7 +13,7 @@ public class Main {
         new StaubAnimation();
         new SchneeballCollision();
         new CollectableCollision();
-        new Lost();
+        new Lose();
         new Explosion();
         //connectingBalanceBoard();
 
