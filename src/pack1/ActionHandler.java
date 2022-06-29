@@ -18,6 +18,9 @@ public class ActionHandler implements ActionListener {
             Var.btn_shop.setVisible(false);
             Var.btn_exit.setVisible(false);
 
+            Var.btnupgrade1.setVisible(false);
+            Var.btnleben.setVisible(false);
+
             KeyHandler.tempKeyhandler = 0;
             Aktualisierung.tempAktualisierung = 0;
 
@@ -35,6 +38,9 @@ public class ActionHandler implements ActionListener {
             Var.btn_shop.setVisible(false);
             Var.btn_exit.setVisible(false);
 
+            Var.btnupgrade1.setVisible(true);
+            Var.btnleben.setVisible(true);
+
             KeyHandler.tempKeyhandler = 1;
             Var.window.requestFocus();
 
@@ -49,10 +55,36 @@ public class ActionHandler implements ActionListener {
             Var.btn_shop.setVisible(false);
             Var.btn_exit.setVisible(false);
 
-            KeyHandler.tempKeyhandler = 1;
 
-        } else if (e.getSource() == Var.btn_exit) {
+
+            KeyHandler.tempKeyhandler = 1;
+            Var.window.requestFocus();
+
+
+
+        }  else if (e.getSource() == Var.btn_exit) {
             System.exit(0);
+
+        }else if (e.getSource() == Var.btnupgrade1) {
+            if(Var.collectables >= Var.up1preis) {
+
+                Var.maxleben += 1;
+                Var.leben = Var.maxleben;
+                Var.collectables -= Var.up1preis;
+                Var.up1preis = (Var.up1preis + Var.up1preis / 2);
+                Var.up1anzahl += 1;
+                Var.window.requestFocus();
+            }
+
+
+
+        }else if (e.getSource() == Var.btnleben) {
+            if(Var.collectables >= Var.uplebenpreis&&Var.leben<Var.maxleben) {
+                Var.collectables-=Var.uplebenpreis;
+                Var.leben+=1;
+            }
+            Var.window.requestFocus();
         }
+
     }
 }

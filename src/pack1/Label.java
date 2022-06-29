@@ -48,7 +48,7 @@ public class Label extends JLabel {
 
 
             if (Var.lost) {
-                g.setColor(new Color(0, 230, 115));
+                g.setColor(new Color(230, 0, 0));
                 g.setFont(new Font("Arial", Font.BOLD, 35));
                 g.drawString("Collectables: " + Var.collectables, 310, 200);
                 g.setColor(new Color(100,100,100,128));
@@ -56,12 +56,15 @@ public class Label extends JLabel {
                 repaint();
 
             } else {
-                g.setColor(new Color(0, 230, 115));
+                g.setColor(new Color(6, 96, 2));
                 g.setFont(new Font("Arial", Font.BOLD, 35));
                 g.drawString("Collectables: " + Var.collectables, 20, 50);
                 g.drawImage(Var.ileben, 600, 500, 50, 50, null);
                 g.setFont(new Font("Arial", Font.BOLD, 55));
                 g.drawString("" + Var.leben, 670, 545);
+                g.setFont(new Font("Arial", Font.BOLD, 25));
+                g.drawString("/ " + Var.maxleben, 730, 545);
+
                 repaint();
             }
 
@@ -93,36 +96,27 @@ public class Label extends JLabel {
             g.fillRect(0, 0, Var.win_screenwidth, Var.win_screenheight);
 
             if (Var.lost) {
-                g.setColor(new Color(0, 230, 115));
+                g.setColor(new Color(230, 0, 0));
                 g.setFont(new Font("Arial", Font.BOLD, 35));
                 g.drawString("Collectable:" + Var.collectables, 310, 200);
                 repaint();
 
         } if (Var.imShop)
 
-            g.setColor(new Color(0, 230, 115));
+            g.setColor(new Color(197, 58, 58));
             g.setFont(new Font("Arial", Font.BOLD, 35));
             g.drawString("Collectable:" + Var.collectables, 310, 180);
 
-            g.drawString("Leben",75,390);
+            g.drawString("max. Leben",75,390);
 
             g.drawString("St." + Var.up1anzahl, 550, 390);
 
-            g.drawString(Var.up1preis + "$", 310, 390);
+            g.drawString(Var.up1preis + "C", 310, 390);
+            g.drawString(Var.uplebenpreis+"C", 700, 185);
+            g.drawString("Leben +1", 525, 235);
+
 
             repaint();
-            //Upgrade für Plasmaschild und Schüsse, ist unnötig aber trozdem programiert.
-                /*g.drawString("St." + Var.up2anzahl, 550, 415);
-                g.drawString("St." + Var.up3anzahl, 550, 485);*/
-                //Upgrade für Plasmaschild und Schüsse, ist unnötig aber trozdem programiert.
-                /*g.drawString(Var.up2preis + "c", 310, 415);
-                g.drawString(Var.up3preis + "c", 310, 485);
-
-                g.setColor(Color.black);
-                g.drawLine(50, 362, 750, 362);
-                g.drawLine(50, 438, 750, 438);
-
-                g.drawLine(300, 300, 300, 500);*/
 
 
             }

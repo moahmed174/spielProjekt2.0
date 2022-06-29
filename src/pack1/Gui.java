@@ -124,9 +124,70 @@ public class Gui {
             }
         });
         Var.window.add(Var.btn_exit);
+
+        //Upgrade
+
+        Var.btnupgrade1=new JButton();
+        Var.btnupgrade1.setText("+");
+        Var.btnupgrade1.setBounds(450,350,50,50 );
+        Var.btnupgrade1.setVisible(false);
+        Var.btnupgrade1.addActionListener(new ActionHandler() );
+        Var.btnupgrade1.setBackground(Color.black);
+        Var.btnupgrade1.setFont(new Font("Arial", Font.BOLD,40));
+        Var.btnupgrade1.setForeground(Color.WHITE);
+        Var.btnupgrade1.setBorder(null);
+        Var.btnupgrade1.setFocusPainted(false);
+        Var.btnupgrade1.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseEntered(MouseEvent evt) {
+                super.mouseEntered(evt);
+                Var.btnupgrade1.setBackground(new Color(88, 103, 95));
+                Var.btnupgrade1.setForeground(Color.black);
+                if(Var.collectables<Var.up1preis) {
+                    Var.btnupgrade1.setText("x");
+                }
+            } public void mouseExited(MouseEvent evt) {
+                super.mouseExited(evt);
+                Var.btnupgrade1.setBackground(Color.black);
+                Var.btnupgrade1.setForeground(Color.white);
+                Var.btnupgrade1.setText("+");
+            }
+        });
+        Var.window.add(Var.btnupgrade1);
+       Var.btnleben =new JButton();
+
+           Var.btnleben.setText("+");
+        Var.btnleben.setBounds(700,200,50,50);
+        Var.btnleben.setVisible(false);
+        Var.btnleben.addActionListener(new ActionHandler());
+        Var.btnleben.setBackground(Color.black);
+        Var.btnleben.setFont(new Font("Arial",Font.BOLD,40));
+        Var.btnleben.setForeground(Color.WHITE);
+        Var.btnleben.setBorder(null);
+        Var.btnleben.setFocusPainted(false);
+        Var.btnleben.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseEntered(MouseEvent evt) {
+                super.mouseEntered(evt);
+                Var.btnleben.setBackground(new Color(112, 111, 100));
+                Var.btnleben.setForeground(Color.black);
+                if(Var.collectables<Var.uplebenpreis||Var.leben==Var.maxleben) {
+                    Var.btnleben.setText("x");
+                }
+            } public void mouseExited(MouseEvent evt) {
+                super.mouseExited(evt);
+                Var.btnleben.setBackground(Color.black);
+                Var.btnleben.setForeground(Color.white);
+                Var.btnleben.setText("+");
+            }
+        });
+
+        Var.window.add(Var.btnleben);
+
+
         Var.window.add(Var.lb_l1);
-
-
 
 
 

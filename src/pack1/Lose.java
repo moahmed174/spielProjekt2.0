@@ -28,6 +28,8 @@ public class Lose {
                         Var.btn_option.setVisible(false);
                         Var.btn_shop.setVisible(false);
                         Var.btn_exit.setVisible(false);
+                        Var.btnupgrade1.setVisible(true);
+                        Var.btnleben.setVisible(true);
                         KeyHandler.tempKeyhandler++;
                         Var.btn_resume.requestFocus();
                         Var.window.requestFocus();
@@ -69,6 +71,7 @@ public class Lose {
             Var.schneeball_y[i]=Var.win_screenheight+100+temp2;
 
             temp2+=160;
+
         }
     }
     private void resetStats(){

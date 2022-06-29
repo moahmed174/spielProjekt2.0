@@ -27,12 +27,14 @@ public class  Var {
     //Anzeige
     static int collectables=0, leben =3, maxleben=3;
     static int up1anzahl=0, up2anzahl = 0, up3anzahl = 0;
-    static int up1preis =10 , up2preis = 30, up3preis= 60;
+    static int up1preis =15 ,uplebenpreis =5 ;
+
 
 
     //Buttons - Control
     static JButton btn_resume, btn_shop, btn_option, btn_exit;
     static JButton btn_mute;
+    static JButton btnupgrade1,btnleben;
 
     //Movement
     static int ski_x = 400, ski_y = 300;
@@ -146,7 +148,14 @@ public class  Var {
         }
         //Collectable - Jägermeister
         jaeger_speed = 6;
+
+        Musik.musik("audio/track.wav");
+
     }
+
+
+
+
 
     private int generateRandom(int max, int min){
         Random rnd = new Random();
