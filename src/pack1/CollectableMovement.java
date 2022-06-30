@@ -6,40 +6,41 @@ import java.util.TimerTask;
 public class CollectableMovement {
 
     Timer timer;
-    private int temp=0;
+    private int temp = 0;
 
-    public CollectableMovement(){
+    public CollectableMovement() {
 
         getStartPos();
         getMovement();
     }
 
-    private void getStartPos(){
+    private void getStartPos() {
         //Position Bier
-        for(int i=0;i<=4;i++){
-            Var.bier_x[i]=20+temp;
-            Var.bier_y[i]=Var.win_screenheight+200+temp;
+        for (int i = 0; i <= 4; i++) {
+            Var.bier_x[i] = 20 + temp;
+            Var.bier_y[i] = Var.win_screenheight + 200 + temp;
 
             temp += 160;
         }
         //Position Redbull
-        Var.redbull_x[0]=Var.win_screenwidth/3;
-        Var.redbull_x[1]=Var.win_screenwidth*2/3;
-        Var.redbull_y[0]=Var.win_screenheight+1000;
-        Var.redbull_y[1]=Var.win_screenheight+1500;
+        Var.redbull_x[0] = Var.win_screenwidth / 3;
+        Var.redbull_x[1] = Var.win_screenwidth * 2 / 3;
+        Var.redbull_y[0] = Var.win_screenheight + 1000;
+        Var.redbull_y[1] = Var.win_screenheight + 1500;
 
         //Position Jägermeister
         Var.jaeger_x = 375;
-        Var.jaeger_y = Var.win_screenheight+4000;
+        Var.jaeger_y = Var.win_screenheight + 4000;
 
     }
+
     private void getMovement() {
 
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-
+                if (Var.imSpiel) {
 
 
                     //Bier
@@ -70,10 +71,7 @@ public class CollectableMovement {
 
 
                 }
-
-
+            }
         }, 0, 9);
     }
-
-
 }

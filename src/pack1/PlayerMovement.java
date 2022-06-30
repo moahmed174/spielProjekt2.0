@@ -12,7 +12,7 @@ public class PlayerMovement {
         movement.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if(Var.imSpiel) {
+                if (Var.imSpiel && Var.lost==false) {
 
 
                     if (Var.moveup == true) {
@@ -42,6 +42,7 @@ public class PlayerMovement {
                     }
                 }
             }
+
         }, 0, 9);
     }
 }

@@ -41,7 +41,7 @@ public class KeyHandler implements KeyListener {
                 Var.btn_shop.setVisible(true);
                 Var.btn_option.setVisible(true);
                 Var.btn_exit.setVisible(true);
-                tempKeyhandler--;
+                tempKeyhandler++;
             } else if (tempKeyhandler == 1) {
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                     Var.imSpiel = true;
@@ -56,9 +56,8 @@ public class KeyHandler implements KeyListener {
                     Var.btnupgrade1.setVisible(false);
                     Var.btnleben.setVisible(false);
 
-                    tempKeyhandler--;
+                    tempKeyhandler++;
                     Aktualisierung.tempAktualisierung = 0;
-
                 }
 
             }
@@ -78,10 +77,12 @@ public class KeyHandler implements KeyListener {
 
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             Var.moveright = false;
+            Var.i_ski=Var.i_ski_straight;
         }
 
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             Var.moveleft = false;
+            Var.i_ski=Var.i_ski_straight;
         }
     }
 }

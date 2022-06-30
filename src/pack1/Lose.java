@@ -15,24 +15,25 @@ public class Lose {
             public void run() {
 
                 if(Var.lost){
-                    if(temp>=0 && temp<=55){
+                    if(temp>=0 && temp<=150){
                         temp++;
-                    }else if(temp==56){
-
+                    }else //if(temp==56){
+                        {
                         //Menü
                         Var.imSpiel=false;
                         Var.imOption=false;
-                        Var.imShop=true;
-                        Var.imMenü=false;
+                        Var.imShop=false;
+                        Var.imMenü=true;
                         Var.btn_resume.setVisible(true);
                         Var.btn_option.setVisible(false);
                         Var.btn_shop.setVisible(false);
                         Var.btn_exit.setVisible(false);
-                        Var.btnupgrade1.setVisible(true);
-                        Var.btnleben.setVisible(true);
+                        Var.btnupgrade1.setVisible(false);
+                        Var.btnleben.setVisible(false);
                         KeyHandler.tempKeyhandler++;
                         Var.btn_resume.requestFocus();
                         Var.window.requestFocus();
+                        Var.maxleben=3;
 
                         System.out.println("Verloren");
 
@@ -79,11 +80,11 @@ public class Lose {
         temp1=0;
         temp2=0;
 
-        if(Var.collectables>=50){
-            Var.collectables-=50;
-        } else {
-            Var.collectables=0;
+        Var.collectables=0;
+        if(Var.score>=Var.highscore) {
+            Var.highscore = Var.score;
         }
+        Var.score=0;
 
         Var.leben=Var.maxleben;
         Var.lost=false;

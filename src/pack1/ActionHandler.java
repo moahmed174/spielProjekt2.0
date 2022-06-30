@@ -7,6 +7,8 @@ public class ActionHandler implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        //Resume --> Spiel
         if (e.getSource() == Var.btn_resume) {
 
             Var.imSpiel=true;
@@ -27,6 +29,7 @@ public class ActionHandler implements ActionListener {
             Var.window.requestFocus();
 
 
+        //Shop-->shop
         } else if (e.getSource() == Var.btn_shop) {
 
             Var.imSpiel=false;
@@ -44,6 +47,8 @@ public class ActionHandler implements ActionListener {
             KeyHandler.tempKeyhandler = 1;
             Var.window.requestFocus();
 
+
+        //Option--> option
         } else if (e.getSource() == Var.btn_option) {
 
             Var.imSpiel=false;
@@ -55,32 +60,33 @@ public class ActionHandler implements ActionListener {
             Var.btn_shop.setVisible(false);
             Var.btn_exit.setVisible(false);
 
-
-
             KeyHandler.tempKeyhandler = 1;
             Var.window.requestFocus();
 
 
-
+        //Exit-->close
         }  else if (e.getSource() == Var.btn_exit) {
             System.exit(0);
 
+
+    //SHOPBUTTONS
+        //Maxleben--> maxleben+1, leben +1
         }else if (e.getSource() == Var.btnupgrade1) {
             if(Var.collectables >= Var.up1preis) {
 
                 Var.maxleben += 1;
-                Var.leben = Var.maxleben;
+                Var.leben += 1;
                 Var.collectables -= Var.up1preis;
                 Var.up1preis = (Var.up1preis + Var.up1preis / 2);
                 Var.up1anzahl += 1;
                 Var.window.requestFocus();
             }
 
-
-
+        //Leben+1 --> leben+1
         }else if (e.getSource() == Var.btnleben) {
             if(Var.collectables >= Var.uplebenpreis&&Var.leben<Var.maxleben) {
                 Var.collectables-=Var.uplebenpreis;
+                Var.uplebenpreis = (Var.uplebenpreis + Var.uplebenpreis / 2);
                 Var.leben+=1;
             }
             Var.window.requestFocus();

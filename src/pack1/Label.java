@@ -16,6 +16,7 @@ public class Label extends JLabel {
 
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
+        //IF IM SPIEL
         if (Var.imSpiel) {
 
             //Background
@@ -47,27 +48,38 @@ public class Label extends JLabel {
             g.drawImage(Var.i_ski, Var.ski_x, Var.ski_y, 48, 74, null);
 
 
+            //Verloren Anzeigen --> erste nach verloren
             if (Var.lost) {
                 g.setColor(new Color(230, 0, 0));
+                g.setFont(new Font("Arial", Font.BOLD, 50));
+                g.drawString("Score: " + Var.score, 315, 200);
+
+                g.setColor(new Color(84, 26, 26));
                 g.setFont(new Font("Arial", Font.BOLD, 35));
-                g.drawString("Collectables: " + Var.collectables, 310, 200);
-                g.setColor(new Color(100,100,100,128));
-                g.fillRect(0,0,Var.win_screenwidth,Var.win_screenheight);
+                g.drawString("Highscore: " + Var.highscore, 310, 250);
+
+                g.setColor(new Color(100, 100, 100, 128));
+                g.fillRect(0, 0, Var.win_screenwidth, Var.win_screenheight);
                 repaint();
 
+                //Im Spiel Anzeigen
             } else {
                 g.setColor(new Color(6, 96, 2));
-                g.setFont(new Font("Arial", Font.BOLD, 35));
-                g.drawString("Collectables: " + Var.collectables, 20, 50);
+                g.setFont(new Font("Arial", Font.BOLD, 30));
+                g.drawString("Score: " + Var.score, 20, 50);
+                g.setColor(new Color(6, 96, 2));
+                g.setFont(new Font("Arial", Font.BOLD, 20));
+                g.drawString("Collectables: " + Var.collectables, 20, 80);
                 g.drawImage(Var.ileben, 600, 500, 50, 50, null);
                 g.setFont(new Font("Arial", Font.BOLD, 55));
-                g.drawString("" + Var.leben, 670, 545);
+                g.drawString("" + Var.leben, 690, 545);
                 g.setFont(new Font("Arial", Font.BOLD, 25));
                 g.drawString("/ " + Var.maxleben, 730, 545);
 
                 repaint();
             }
 
+            //Kollision
             if (Var.collision) {
                 if (Var.expanimation > 1 && Var.expanimation <= 4) {
                     g.setColor(new Color(230, 0, 0, 45));
@@ -79,54 +91,55 @@ public class Label extends JLabel {
             }
             repaint();
 
+            //IF IM MENÜ
         } else if (Var.imMenü || Var.imOption || Var.imShop) {
-
+            //Standbild
             g.drawImage(Var.i_b1, 0, Var.backgroundY1, 800, 600, null);
             g.drawImage(Var.i_b2, 0, Var.backgroundY2, 800, 600, null);
-
             g.drawImage(Var.i_ski_staub, Var.ski_x + 7, Var.ski_y - 5, 34, 19, null);
-
             g.drawImage(Var.i_ski, Var.ski_x, Var.ski_y, 48, 74, null);
-
             for (int i = 0; i <= 4; i++) {
                 g.drawImage(Var.i_schneeball[i], Var.schneeball_x[i], Var.schneeball_y[i], 70, 70, null);
             }
+            //Collectables?
 
             g.setColor(new Color(100, 100, 100, 128));
             g.fillRect(0, 0, Var.win_screenwidth, Var.win_screenheight);
 
             if (Var.lost) {
                 g.setColor(new Color(230, 0, 0));
+                g.setFont(new Font("Arial", Font.BOLD, 50));
+                g.drawString("Score: " + Var.score, 315, 200);
+
+                g.setColor(new Color(84, 26, 26));
                 g.setFont(new Font("Arial", Font.BOLD, 35));
-                g.drawString("Collectable:" + Var.collectables, 310, 200);
+                g.drawString("Highscore: " + Var.highscore, 310, 250);
+
+                g.setColor(new Color(100, 100, 100, 128));
+                g.fillRect(0, 0, Var.win_screenwidth, Var.win_screenheight);
                 repaint();
-
-        } if (Var.imShop)
-
-            g.setColor(new Color(197, 58, 58));
-            g.setFont(new Font("Arial", Font.BOLD, 35));
-            g.drawString("Collectable:" + Var.collectables, 310, 180);
-
-            g.drawString("max. Leben",75,390);
-
-            g.drawString("St." + Var.up1anzahl, 550, 390);
-
-            g.drawString(Var.up1preis + "C", 310, 390);
-            g.drawString(Var.uplebenpreis+"C", 700, 185);
-            g.drawString("Leben +1", 525, 235);
-
-
-            repaint();
-
-
             }
 
 
+            if (Var.imShop) {
+
+                g.setColor(new Color(197, 58, 58));
+                g.setFont(new Font("Arial", Font.BOLD, 35));
+                g.drawString("Collectable:" + Var.collectables, 310, 180);
+
+                g.drawString("max. Leben", 75, 390);
+
+                g.drawString("St." + Var.up1anzahl, 550, 390);
+
+                g.drawString(Var.up1preis + "C", 310, 390);
+                g.drawString(Var.uplebenpreis + "C", 700, 185);
+                g.drawString("Leben +1", 525, 235);
+            }
+
+            repaint();
         }
-
-
-
     }
+}
 
 
 

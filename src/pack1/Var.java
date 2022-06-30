@@ -18,14 +18,14 @@ public class  Var {
     static int backgroundY1 = 0,backgroundY2 = 600,  backgroundspeed =9;
 
     //Game mechanics
-    static boolean collision = false, lost = false;
+    static boolean collision = false, lost = false, best=false;
 
     //Menü
     static boolean imSpiel = true, imMenü = false ,imOption = false, imShop= false;
     static Label lbl1;
 
     //Anzeige
-    static int collectables=0, leben =3, maxleben=3;
+    static int collectables=0, leben =3, maxleben=3, score=0, highscore=0;
     static int up1anzahl=0, up2anzahl = 0, up3anzahl = 0;
     static int up1preis =15 ,uplebenpreis =5 ;
 

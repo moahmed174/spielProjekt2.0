@@ -5,7 +5,7 @@ import java.util.TimerTask;
 
 public class SchneeballCollision {
     Timer timer;
-    private int temp=0;
+    private int temp = 0;
 
     public SchneeballCollision() {
         timer = new Timer();
@@ -13,9 +13,7 @@ public class SchneeballCollision {
             @Override
             public void run() {
 
-                if (Var.imSpiel) {
-
-
+                if (Var.imSpiel&&Var.lost==false) {
                     for (int i = 0; i <= 4; i++) {
                         if (temp == 0) {
                             if (Var.ski_x + Var.i_ski_w >= Var.schneeball_x[i] && Var.ski_x - Var.i_schneeball_w <= Var.schneeball_x[i] &&
@@ -23,14 +21,16 @@ public class SchneeballCollision {
                                 Var.collision = true;
                                 Var.schneeball_y[i] = Var.win_screenheight + 100;
 
-                                if (Var.leben == 1) {
+                                if (Var.leben >= 1) {
                                     Var.leben--;
-                                    Var.lost = true;
-
-                                } else {
-                                    Var.leben--;
-                                    //Var.lost=false;
                                 }
+                                if (Var.leben == 0) {
+                                    Var.lost = true;
+                                    //Var.imSpiel = false;
+                                } else if (Var.leben > 0) {
+                                    Var.lost = false;
+                                }
+
                                 temp++;
                             }
 
@@ -41,7 +41,8 @@ public class SchneeballCollision {
                             temp = 0;
                         }
                     }
-                }}
-        },0, 15);
+                }
+            }
+        }, 0, 15);
     }
 }
