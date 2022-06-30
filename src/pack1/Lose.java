@@ -34,6 +34,8 @@ public class Lose {
                         Var.btn_resume.requestFocus();
                         Var.window.requestFocus();
                         Var.maxleben=3;
+                        Var.up1preis =15;
+                        Var.uplebenpreis =5 ;
 
                         System.out.println("Verloren");
 

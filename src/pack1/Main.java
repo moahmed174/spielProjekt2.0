@@ -1,5 +1,8 @@
 package pack1;
 
+import wiiremotej.BalanceBoard;
+import wiiremotej.WiiRemoteJ;
+
 public class Main {
     public static void main(String[] args) {
         new Gui();
@@ -26,8 +29,7 @@ public class Main {
         //connectingBalanceBoard();
 
     }
-
-    /*
+/*
     public static void connectingBalanceBoard(){
         //basic console logging options...
         WiiRemoteJ.setConsoleLoggingAll();
@@ -56,6 +58,5 @@ public class Main {
             Runtime.getRuntime().addShutdownHook(new Thread(new Runnable(){public void run(){boardF.disconnect();}}));
         }
         catch(Exception e){e.printStackTrace();}
-    }
-    */
+    }*/
 }
